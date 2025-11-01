@@ -14,8 +14,8 @@ export default function CampReport() {
   useEffect(() => {
     axios
       .get("https://kumaran-hospital-backend-server.onrender.com/api/camps")
-          .then((res) => setCamps(res.data))
-          .catch(() => setErrorMsg("⚠️ முகாம் விவரங்களை ஏற்ற முடியவில்லை!"));
+      .then((res) => setCamps(res.data))
+      .catch(() => setErrorMsg("⚠️ முகாம் விவரங்களை ஏற்ற முடியவில்லை!"));
   }, []);
 
   // ✅ Fetch patients when a camp is selected
@@ -25,8 +25,7 @@ export default function CampReport() {
       setSelectedCamp(campData);
 
       axios
-        axios
-  .get(`https://kumaran-hospital-backend-server.onrender.com/api/patients/camp/${selectedCampId}`)
+        .get(`https://kumaran-hospital-backend-server.onrender.com/api/patients/camp/${selectedCampId}`)
         .then((res) => setPatients(res.data))
         .catch(() => setErrorMsg("நோயாளர் விவரங்களை பெற முடியவில்லை!"));
     }
